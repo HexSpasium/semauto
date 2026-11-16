@@ -139,3 +139,8 @@ body{background:#090a0c;color:#f5f5f5}
  header nav a{font-size:10px!important}
  header .admin{font-size:8px!important;padding:8px!important}
 }
+
+.detail-footnote{display:flex;flex-direction:column;gap:5px;margin-top:20px;padding:15px 16px;border-left:3px solid #ed101c;background:#1b1e22;color:#f5f5f5}
+.detail-footnote .contact-name{font:600 16px Oswald,sans-serif;letter-spacing:.8px;color:#fff}
+.detail-footnote .contact-phone{font:500 15px 'DM Sans',sans-serif;letter-spacing:.5px;color:#ff303b;text-decoration:none}
+.detail-footnote .contact-phone:hover{color:#fff}
