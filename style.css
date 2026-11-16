@@ -20,3 +20,37 @@
 .lightbox-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:white;background:#111b;padding:7px 14px;border-radius:20px;font-size:13px;letter-spacing:1px}
 body.lightbox-active{overflow:hidden}
 @media(max-width:600px){.image-lightbox{padding:7vh 3vw}.lightbox-image{max-width:94vw;max-height:82vh}.lightbox-prev{left:7px}.lightbox-next{right:7px}.lightbox-prev,.lightbox-next{width:38px;height:52px;font-size:34px}.lightbox-close{top:10px;right:10px}}
+
+/* SEM AUTO premium vehicle detail */
+#modal.modal{padding:24px;background:rgba(4,7,7,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:9000}
+#modal .dialog{position:relative;max-width:1120px;width:min(1120px,96vw);max-height:min(88vh,900px);overflow:auto;padding:0;background:#111514;color:#eeeae1;border:1px solid rgba(199,166,106,.42);box-shadow:0 30px 100px #000b;border-radius:3px}
+#modal #close{position:sticky;float:right;top:14px;right:14px;z-index:4;width:42px;height:42px;margin:14px 14px -56px 0;border:1px solid #ffffff35;border-radius:50%;background:#101413;color:#e7d7b8;font-size:25px;line-height:1}
+#modal #mtitle{margin:0;padding:30px 34px 24px;border-bottom:1px solid #ffffff18;color:#f4f0e8;font:500 28px Oswald,sans-serif;letter-spacing:1.2px;text-transform:uppercase}
+#modal #mdetail{margin:0;padding:0;color:#ddd8ce;font:inherit;line-height:1.6}
+.detail-layout{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(330px,.85fr);gap:0}
+.detail-media{padding:28px;background:#0b0e0d;border-right:1px solid #ffffff16}
+.detail-hero{position:relative;display:block;width:100%;height:420px;padding:0;border:0;background:#080a09;overflow:hidden;cursor:zoom-in}
+.detail-hero img{width:100%;height:100%;display:block;object-fit:contain}
+.hero-zoom{position:absolute;left:14px;bottom:14px;padding:8px 12px;background:#090c0bd9;border:1px solid #ffffff38;color:#e6d4b0;font-size:9px;letter-spacing:1.5px}
+.detail-thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:10px}
+.detail-thumb{position:relative;height:82px;padding:0;border:1px solid #ffffff20;background:#080a09;overflow:hidden;cursor:zoom-in}
+.detail-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.detail-thumb:hover img{transform:scale(1.07)}
+.detail-thumb span{position:absolute;right:5px;bottom:4px;color:#fff;background:#0009;padding:1px 5px}
+.detail-gallery-note{display:flex;justify-content:space-between;margin-top:17px;color:#9a927f;font-size:9px;letter-spacing:1.6px}
+.detail-info{padding:35px 32px 28px}
+.detail-eyebrow{font-size:9px;letter-spacing:2px;color:#bca06c}
+.detail-eyebrow span{padding:0 5px;color:#fff}
+.detail-price{margin-top:13px;color:#d2b477;font:500 34px Oswald,sans-serif;letter-spacing:.4px}
+.detail-price-caption{font-size:9px;letter-spacing:2px;color:#89877e;margin:0 0 25px}
+.detail-specs{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #ffffff20;border-left:1px solid #ffffff20}
+.detail-spec{padding:13px 12px;border-right:1px solid #ffffff20;border-bottom:1px solid #ffffff20}
+.detail-spec small,.detail-condition small{display:block;color:#9a927f;font-size:9px;letter-spacing:1.3px;margin-bottom:4px}
+.detail-spec strong{font-size:13px;font-weight:500;color:#f1eee7}
+.detail-section{padding:22px 0 13px;border-bottom:1px solid #ffffff20}
+.detail-section h4{margin:0 0 8px;color:#c7a66a;font:500 14px Oswald,sans-serif;letter-spacing:1.4px}
+.detail-section p,.detail-condition p{margin:0;color:#c8c5bd;font-size:12px;line-height:1.8}
+.detail-condition>div{padding:12px 0;border-bottom:1px solid #ffffff14}
+.detail-footnote{margin-top:18px;color:#8d8b83;font-size:10px;line-height:1.7}
+.detail-no-photo{height:420px;display:grid;place-items:center;color:#888;font-size:11px;letter-spacing:2px;background:#151918}
+@media(max-width:760px){#modal.modal{padding:10px}#modal .dialog{width:100%;max-height:94vh}#modal #mtitle{padding:24px 20px 18px;font-size:22px}#modal #close{margin:9px 9px -50px 0;width:38px;height:38px}.detail-layout{grid-template-columns:1fr}.detail-media{padding:14px;border-right:0;border-bottom:1px solid #ffffff16}.detail-hero,.detail-no-photo{height:260px}.detail-thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-thumb{height:65px}.detail-info{padding:22px 18px}.detail-price{font-size:29px}}
