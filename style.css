@@ -171,18 +171,28 @@ html.sem-loading,html.sem-loading body{overflow:hidden!important}
 .loader-logo{display:block;width:min(210px,58vw);max-height:190px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 8px 24px #000b)}
 .loader-owner{font:600 14px Oswald,sans-serif;letter-spacing:5px;color:#f4f4f4;margin:0 0 24px;text-shadow:0 0 18px #fff4}
 .loader-messages{position:relative;width:100%;height:108px;display:grid;place-items:center;margin-bottom:24px}
-.loader-message{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;animation:message-cycle 9s infinite;font-family:Oswald,sans-serif;font-size:clamp(26px,6vw,38px);font-weight:700;line-height:1.06;letter-spacing:1.4px;text-shadow:0 4px 22px #000}
+.loader-message{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;animation:message-cycle 15s infinite;font-family:Oswald,sans-serif;font-size:clamp(26px,6vw,38px);font-weight:700;line-height:1.06;letter-spacing:1.4px;text-shadow:0 4px 22px #000}
 .loader-message em{font-style:italic;color:#ed101c;font-size:1.12em}
-.message-two{animation-delay:3s}.message-three{animation-delay:6s}
+.message-two{animation-delay:5s}.message-three{animation-delay:10s}
 .loader-track{position:relative;width:min(280px,68vw);height:2px;background:#ffffff20;overflow:hidden;box-shadow:0 0 12px #ed101c22}
-.loader-track span{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#ed101c,#ff626b,#ed101c,transparent);transform:translateX(-100%);animation:loader-progress 10s linear forwards;box-shadow:0 0 10px #ed101c}
+.loader-track span{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#ed101c,#ff626b,#ed101c,transparent);transform:translateX(-100%);animation:loader-progress 15s linear forwards;box-shadow:0 0 10px #ed101c}
 .loader-caption{margin-top:13px;color:#92949b;font-size:8px;letter-spacing:3px}
 .sem-loader.is-leaving{opacity:0;visibility:hidden;transition:opacity .65s ease,visibility .65s}
 @keyframes loader-rays{to{transform:rotate(360deg)}}
 @keyframes wheel-turn{to{transform:rotate(360deg)}}
 @keyframes loader-sweep{0%,15%{transform:translateX(-100%)}70%,100%{transform:translateX(100%)}}
 @keyframes beam-glide{0%,100%{opacity:.12;translate:-8% 0}50%{opacity:.9;translate:8% 0}}
-@keyframes car-pulse{0%,100%{transform:translateY(5px) scale(.96);opacity:.1}50%{transform:translateY(-5px) scale(1.04);opacity:.3}}
-@keyframes message-cycle{0%,5%{opacity:0;transform:translateY(12px);filter:blur(5px)}12%,27%{opacity:1;transform:translateY(0);filter:blur(0)}34%,100%{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
+@keyframes car-pulse{0%,100%{transform:translateY(4px) scale(.98);opacity:.12}50%{transform:translateY(-4px) scale(1.015);opacity:.34}}
+@keyframes message-cycle{0%,4%{opacity:0;transform:translateY(14px);filter:blur(6px)}9%,28%{opacity:1;transform:translateY(0);filter:blur(0)}34%,100%{opacity:0;transform:translateY(-12px);filter:blur(5px)}}
 @media(max-width:600px){.loader-wheel{width:88vw}.loader-logo{width:min(200px,60vw)}.loader-owner{font-size:13px;margin-bottom:20px}.loader-messages{height:100px}.loader-message{font-size:clamp(25px,7vw,34px)}}
 @media(prefers-reduced-motion:reduce){.loader-wheel,.sem-loader:before,.sem-loader:after,.loader-beam,.loader-car-light,.loader-message,.loader-track span{animation-duration:1ms!important;animation-iteration-count:1!important}}
+
+/* Refined automotive silhouette and lighting */
+.loader-car-light{width:min(76vw,660px);opacity:.24;filter:drop-shadow(0 0 8px #ed101c66) drop-shadow(0 0 28px #ed101c35);animation:car-pulse 4.8s ease-in-out infinite}
+.loader-wheel{width:min(66vw,490px);border-color:#ed101c25;box-shadow:0 0 60px #ed101c15,inset 0 0 55px #ed101c10}
+.loader-wheel:before{border:1px solid #ffffff12;inset:7%}
+.loader-wheel:after{border:1px dashed #ed101c30;inset:17%}
+.loader-beam{height:1px;filter:drop-shadow(0 0 5px #ed101c) drop-shadow(0 0 13px #ed101c88);opacity:.7}
+.beam-two{height:2px;opacity:.32}
+.sem-loader:after{background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.12) 49%,rgba(237,16,28,.13) 50%,transparent 56%);animation:loader-sweep 4.8s cubic-bezier(.4,0,.2,1) infinite}
+@media(max-width:600px){.loader-car-light{width:94vw;opacity:.19}.loader-wheel{width:90vw}}
