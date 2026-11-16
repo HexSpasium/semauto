@@ -3,3 +3,20 @@
 #cars.section{padding:72px 7%;max-width:1500px;margin:0 auto;background:#f4f2ed;color:#171918}#cars .head{margin-bottom:28px}#cars .head small{display:block}#cars .head h2{color:#171918}#cars .head p{margin:10px 0 0}#cars .filters{width:100%}#cars .grid{width:100%}header .logo,header .admin,.hero .gold{ text-decoration:none }header .logo{color:#f4f1e9}header nav a{color:#ddd}header .admin{color:#ddd}@media(max-width:600px){#cars.section{padding:52px 5%}}
 
 .vehicle-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:12px 0 18px}.vehicle-gallery img{width:100%;height:105px;object-fit:cover;border-radius:6px;background:#eee}@media(max-width:520px){.vehicle-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}.vehicle-gallery img{height:95px}}
+
+/* Full-resolution vehicle photo viewer */
+.vehicle-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:12px 0 20px}
+.vehicle-gallery-thumb{position:relative;display:block;padding:0;border:0;background:#111;cursor:zoom-in;border-radius:7px;overflow:hidden;aspect-ratio:4/3}
+.vehicle-gallery-thumb img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .2s}
+.vehicle-gallery-thumb:hover img{transform:scale(1.05)}
+.vehicle-gallery-thumb span{position:absolute;right:7px;bottom:6px;color:white;background:#0009;border-radius:4px;padding:2px 6px;font-size:17px}
+.image-lightbox{position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.96);display:none;align-items:center;justify-content:center;padding:5vh 5vw}
+.image-lightbox.open{display:flex}
+.lightbox-image{display:block;width:auto;height:auto;max-width:90vw;max-height:88vh;object-fit:contain;box-shadow:0 12px 60px #0008}
+.image-lightbox button{position:absolute;border:1px solid #ffffff55;background:#171717cc;color:#fff;cursor:pointer;display:grid;place-items:center}
+.lightbox-close{top:18px;right:22px;width:46px;height:46px;border-radius:50%;font-size:30px}
+.lightbox-prev,.lightbox-next{top:50%;transform:translateY(-50%);width:48px;height:64px;border-radius:8px;font-size:42px;line-height:1}
+.lightbox-prev{left:18px}.lightbox-next{right:18px}
+.lightbox-count{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);color:white;background:#111b;padding:7px 14px;border-radius:20px;font-size:13px;letter-spacing:1px}
+body.lightbox-active{overflow:hidden}
+@media(max-width:600px){.image-lightbox{padding:7vh 3vw}.lightbox-image{max-width:94vw;max-height:82vh}.lightbox-prev{left:7px}.lightbox-next{right:7px}.lightbox-prev,.lightbox-next{width:38px;height:52px;font-size:34px}.lightbox-close{top:10px;right:10px}}
