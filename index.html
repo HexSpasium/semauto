@@ -2,17 +2,66 @@
  <div class="loader-scene" aria-hidden="true">
   <div class="loader-beam beam-one"></div><div class="loader-beam beam-two"></div>
   <div class="loader-wheel"><span></span></div>
-  <svg class="loader-car-light" viewBox="0 0 640 250" fill="none">
- <defs><linearGradient id="carGlow" x1="70" y1="30" x2="570" y2="230" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".95"/><stop offset=".45" stop-color="#ed101c"/><stop offset="1" stop-color="#ed101c" stop-opacity=".15"/></linearGradient><linearGradient id="carGlass" x1="220" y1="65" x2="420" y2="145"><stop stop-color="#fff" stop-opacity=".28"/><stop offset="1" stop-color="#ed101c" stop-opacity=".06"/></linearGradient></defs>
- <path d="M54 166h31l26-18 43-13 48-60c13-16 31-25 53-25h154c25 0 45 11 61 31l45 57 49 14 24 18 5 24H49l5-28Z" stroke="url(#carGlow)" stroke-width="3.4" stroke-linejoin="round"/>
- <path d="m220 78-44 57 255 1-42-54c-10-13-22-19-39-19H252c-13 0-23 5-32 15Z" fill="url(#carGlass)" stroke="#fff" stroke-opacity=".48" stroke-width="2"/>
- <path d="m310 66-3 70m-130-1 255 1m-68-69 43 68" stroke="#fff" stroke-opacity=".3" stroke-width="1.5"/>
- <path d="M103 164h73m282 0h76M70 185h500" stroke="#fff" stroke-opacity=".42" stroke-width="2"/>
- <path d="m545 151 38 10 10 9-46-4m-493-1 27-11 27-3" stroke="#ff3541" stroke-width="4" stroke-linecap="round"/>
- <circle cx="172" cy="183" r="39" fill="#090a0c" stroke="url(#carGlow)" stroke-width="4"/><circle cx="172" cy="183" r="26" stroke="#fff" stroke-opacity=".75" stroke-width="2"/><circle cx="172" cy="183" r="8" fill="#ed101c"/><path d="M172 157v52m-26-26h52m-44-18 36 36m0-36-36 36" stroke="#fff" stroke-opacity=".65" stroke-width="2"/>
- <circle cx="466" cy="183" r="39" fill="#090a0c" stroke="url(#carGlow)" stroke-width="4"/><circle cx="466" cy="183" r="26" stroke="#fff" stroke-opacity=".75" stroke-width="2"/><circle cx="466" cy="183" r="8" fill="#ed101c"/><path d="M466 157v52m-26-26h52m-44-18 36 36m0-36-36 36" stroke="#fff" stroke-opacity=".65" stroke-width="2"/>
- <path d="M30 202h580" stroke="#ed101c" stroke-opacity=".65" stroke-width="2"/><path d="M75 216h490" stroke="#fff" stroke-opacity=".14" stroke-width="1"/>
- </svg>
+  <svg class="loader-car-light" viewBox="0 0 900 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="bodyGlow" x1="90" y1="80" x2="820" y2="245" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".82"/><stop offset=".34" stop-color="#ed101c"/><stop offset=".72" stop-color="#fff" stop-opacity=".7"/><stop offset="1" stop-color="#ed101c" stop-opacity=".35"/></linearGradient>
+  <linearGradient id="glassGlow" x1="310" y1="76" x2="600" y2="174" gradientUnits="userSpaceOnUse"><stop stop-color="#fff" stop-opacity=".28"/><stop offset=".55" stop-color="#aeb7c5" stop-opacity=".08"/><stop offset="1" stop-color="#ed101c" stop-opacity=".18"/></linearGradient>
+  <linearGradient id="rimGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".5" stop-color="#aeb1b8"/><stop offset="1" stop-color="#ed101c"/></linearGradient>
+  <filter id="softRed" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5"/></filter>
+ </defs>
+ <!-- ground reflection -->
+ <path d="M66 247H837" stroke="#ed101c" stroke-opacity=".45" stroke-width="2" filter="url(#softRed)"/>
+ <path d="M105 250H798" stroke="#fff" stroke-opacity=".22" stroke-width="1"/>
+ <!-- aerodynamic lower shadow -->
+ <path d="M91 218C148 207 210 204 263 207H659C718 207 779 215 821 231L798 245H111L91 218Z" fill="#030405" fill-opacity=".65"/>
+ <!-- full coupe body contour -->
+ <path d="M68 211L82 190L118 178L174 168L226 148L280 104C303 85 330 73 367 69C427 62 505 63 560 75C592 82 620 101 645 125L690 164L767 180L815 198L838 218L832 235L805 241H95L69 230L61 220L68 211Z" stroke="url(#bodyGlow)" stroke-width="3.5" stroke-linejoin="round"/>
+ <!-- hood and front/rear sculpted planes -->
+ <path d="M82 190C143 177 189 171 228 151M645 126C685 159 728 173 767 180M112 207C205 193 276 190 350 193H641C710 193 769 204 819 224" stroke="#fff" stroke-opacity=".42" stroke-width="2"/>
+ <path d="M78 214L124 208L152 211M789 207L826 216L815 224" stroke="#ed101c" stroke-width="3" stroke-linecap="round"/>
+ <!-- panoramic roof / windows -->
+ <path d="M246 145L294 108C314 92 337 82 370 79C426 73 492 75 550 86C578 92 600 111 624 137L638 155L243 155L246 145Z" fill="url(#glassGlow)" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>
+ <path d="M433 78L424 155M550 86L584 155M292 110L346 155" stroke="#fff" stroke-opacity=".48" stroke-width="2"/>
+ <path d="M307 102C367 88 390 86 423 86M448 86C491 86 527 91 552 99" stroke="#fff" stroke-opacity=".22" stroke-width="1.5"/>
+ <!-- pillars, beltline, door and body creases -->
+ <path d="M241 158L639 158M425 158L418 213M615 158L644 207M273 163L263 205M440 169L580 169" stroke="#fff" stroke-opacity=".38" stroke-width="1.7"/>
+ <path d="M445 178L568 178M457 181L456 185" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
+ <path d="M285 191C365 181 502 182 612 190" stroke="#ed101c" stroke-opacity=".55" stroke-width="2"/>
+ <!-- side air intake / vent -->
+ <path d="M649 178L692 180L678 193L641 191Z" fill="#050607" stroke="#fff" stroke-opacity=".45" stroke-width="1.5"/>
+ <path d="M651 184L680 185M649 188L674 189" stroke="#ed101c" stroke-opacity=".8" stroke-width="1.5"/>
+ <!-- front grille, lamps and rear light -->
+ <path d="M67 207L106 198L135 200L119 211L78 218" stroke="#fff" stroke-opacity=".7" stroke-width="2.2" stroke-linejoin="round"/>
+ <path d="M72 210L113 204" stroke="#ed101c" stroke-width="3" stroke-linecap="round"/>
+ <path d="M796 195L825 204L834 215L797 211Z" stroke="#fff" stroke-opacity=".65" stroke-width="2"/>
+ <path d="M800 200L827 209" stroke="#ed101c" stroke-width="3" stroke-linecap="round"/>
+ <path d="M83 222L109 226L133 226M778 229L812 230" stroke="#fff" stroke-opacity=".45" stroke-width="2"/>
+ <!-- wheels: tires, rims, drilled discs and ten-spoke detail -->
+ <g>
+  <circle cx="226" cy="218" r="51" fill="#070809" stroke="#fff" stroke-opacity=".72" stroke-width="3"/>
+  <circle cx="226" cy="218" r="43" stroke="#ed101c" stroke-opacity=".65" stroke-width="2"/>
+  <circle cx="226" cy="218" r="35" stroke="#c7cbd1" stroke-opacity=".8" stroke-width="2"/>
+  <circle cx="226" cy="218" r="28" stroke="#fff" stroke-opacity=".25" stroke-width="1"/>
+  <g stroke="url(#rimGlow)" stroke-width="3" stroke-linecap="round">
+   <path d="M226 184V207M226 229V252M192 218H215M237 218H260M202 194L219 211M233 225L250 242M250 194L233 211M219 225L202 242M212 186L222 207M230 229L240 250M190 204L212 214M240 222L262 232M240 186L230 207M222 229L212 250M262 204L240 214M212 222L190 232"/>
+  </g>
+  <circle cx="226" cy="218" r="8" fill="#ed101c" stroke="#fff" stroke-width="1.5"/>
+ </g>
+ <g>
+  <circle cx="697" cy="218" r="51" fill="#070809" stroke="#fff" stroke-opacity=".72" stroke-width="3"/>
+  <circle cx="697" cy="218" r="43" stroke="#ed101c" stroke-opacity=".65" stroke-width="2"/>
+  <circle cx="697" cy="218" r="35" stroke="#c7cbd1" stroke-opacity=".8" stroke-width="2"/>
+  <circle cx="697" cy="218" r="28" stroke="#fff" stroke-opacity=".25" stroke-width="1"/>
+  <g stroke="url(#rimGlow)" stroke-width="3" stroke-linecap="round">
+   <path d="M697 184V207M697 229V252M663 218H686M708 218H731M673 194L690 211M704 225L721 242M721 194L704 211M690 225L673 242M683 186L693 207M701 229L711 250M661 204L683 214M711 222L733 232M711 186L701 207M693 229L683 250M733 204L711 214M683 222L661 232"/>
+  </g>
+  <circle cx="697" cy="218" r="8" fill="#ed101c" stroke="#fff" stroke-width="1.5"/>
+ </g>
+ <!-- wheel arches and rear diffuser -->
+ <path d="M169 210C174 177 194 163 226 163C259 163 279 180 283 211M640 210C645 177 665 163 697 163C730 163 750 180 754 211" stroke="#fff" stroke-opacity=".72" stroke-width="2.2"/>
+ <path d="M126 239L154 242M768 241L796 238M103 244H150M774 244H817" stroke="#ed101c" stroke-opacity=".7" stroke-width="2"/>
+ <path d="M320 237L340 244H625L647 237" stroke="#fff" stroke-opacity=".25" stroke-width="1.5"/>
+</svg>
  </div>
  <div class="loader-content">
   <img class="loader-logo" src="assets/logggg.png" alt="SEM AUTO">
