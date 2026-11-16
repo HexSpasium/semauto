@@ -151,3 +151,38 @@ body{background:#090a0c;color:#f5f5f5}
 #cars .sold-ribbon{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;display:flex;align-items:center;justify-content:center;min-height:43px;padding:9px 14px;background:rgba(255,255,255,.96);color:#e50918;font:700 19px Oswald,sans-serif;letter-spacing:4px;text-align:center;box-shadow:0 3px 18px #0005;pointer-events:none}
 #cars .car.is-sold .price{color:#a5a5a5}
 @media(max-width:600px){#cars .sold-ribbon{min-height:38px;font-size:17px;letter-spacing:3px}}
+
+
+/* SEM AUTO cinematic 10-second intro */
+html.sem-loading,html.sem-loading body{overflow:hidden!important}
+.sem-loader{position:fixed;inset:0;z-index:20000;display:flex;align-items:center;justify-content:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#202126 0%,#0c0d10 48%,#030405 100%);color:#fff;opacity:1;visibility:visible}
+.sem-loader:before,.sem-loader:after{content:"";position:absolute;inset:-40%;pointer-events:none}
+.sem-loader:before{background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0deg 13deg,rgba(229,9,24,.075) 13.5deg 14deg,transparent 14.5deg 28deg);animation:loader-rays 18s linear infinite;mask-image:radial-gradient(circle at center,#000 0%,transparent 65%)}
+.sem-loader:after{background:linear-gradient(110deg,transparent 38%,rgba(255,255,255,.07) 49%,transparent 54%);transform:translateX(-100%);animation:loader-sweep 3.4s ease-in-out infinite}
+.loader-content{position:relative;z-index:2;width:min(88vw,440px);display:flex;align-items:center;flex-direction:column;text-align:center}
+.loader-scene{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;color:#ed101c;opacity:.55}
+.loader-wheel{position:absolute;width:min(78vw,520px);aspect-ratio:1;border:1px solid #ed101c35;border-radius:50%;box-shadow:0 0 35px #ed101c12,inset 0 0 40px #ed101c0b;animation:wheel-turn 12s linear infinite}
+.loader-wheel:before,.loader-wheel:after{content:"";position:absolute;inset:8%;border:1px dashed #ffffff18;border-radius:50%}
+.loader-wheel:after{inset:22%;border:1px solid #ed101c25}
+.loader-wheel span{position:absolute;left:50%;top:-5px;width:2px;height:30%;background:linear-gradient(#ed101c,transparent);transform-origin:bottom;box-shadow:0 0 16px #ed101c}
+.loader-beam{position:absolute;width:130vw;height:2px;background:linear-gradient(90deg,transparent,#ed101c00,#ed101caa,#fff9,#ed101c00,transparent);filter:drop-shadow(0 0 8px #ed101c);transform:rotate(-24deg);animation:beam-glide 4s ease-in-out infinite}
+.beam-two{transform:rotate(24deg);animation-delay:1.3s;opacity:.55}
+.loader-car-light{position:absolute;width:min(48vw,280px);filter:drop-shadow(0 0 12px #ed101c);opacity:.18;animation:car-pulse 3.2s ease-in-out infinite}
+.loader-logo{display:block;width:min(210px,58vw);max-height:190px;object-fit:contain;margin:0 auto 14px;filter:drop-shadow(0 8px 24px #000b)}
+.loader-owner{font:600 14px Oswald,sans-serif;letter-spacing:5px;color:#f4f4f4;margin:0 0 24px;text-shadow:0 0 18px #fff4}
+.loader-messages{position:relative;width:100%;height:108px;display:grid;place-items:center;margin-bottom:24px}
+.loader-message{position:absolute;display:flex;flex-direction:column;align-items:center;gap:0;opacity:0;animation:message-cycle 9s infinite;font-family:Oswald,sans-serif;font-size:clamp(26px,6vw,38px);font-weight:700;line-height:1.06;letter-spacing:1.4px;text-shadow:0 4px 22px #000}
+.loader-message em{font-style:italic;color:#ed101c;font-size:1.12em}
+.message-two{animation-delay:3s}.message-three{animation-delay:6s}
+.loader-track{position:relative;width:min(280px,68vw);height:2px;background:#ffffff20;overflow:hidden;box-shadow:0 0 12px #ed101c22}
+.loader-track span{position:absolute;inset:0;background:linear-gradient(90deg,transparent,#ed101c,#ff626b,#ed101c,transparent);transform:translateX(-100%);animation:loader-progress 10s linear forwards;box-shadow:0 0 10px #ed101c}
+.loader-caption{margin-top:13px;color:#92949b;font-size:8px;letter-spacing:3px}
+.sem-loader.is-leaving{opacity:0;visibility:hidden;transition:opacity .65s ease,visibility .65s}
+@keyframes loader-rays{to{transform:rotate(360deg)}}
+@keyframes wheel-turn{to{transform:rotate(360deg)}}
+@keyframes loader-sweep{0%,15%{transform:translateX(-100%)}70%,100%{transform:translateX(100%)}}
+@keyframes beam-glide{0%,100%{opacity:.12;translate:-8% 0}50%{opacity:.9;translate:8% 0}}
+@keyframes car-pulse{0%,100%{transform:translateY(5px) scale(.96);opacity:.1}50%{transform:translateY(-5px) scale(1.04);opacity:.3}}
+@keyframes message-cycle{0%,5%{opacity:0;transform:translateY(12px);filter:blur(5px)}12%,27%{opacity:1;transform:translateY(0);filter:blur(0)}34%,100%{opacity:0;transform:translateY(-10px);filter:blur(4px)}}
+@media(max-width:600px){.loader-wheel{width:88vw}.loader-logo{width:min(200px,60vw)}.loader-owner{font-size:13px;margin-bottom:20px}.loader-messages{height:100px}.loader-message{font-size:clamp(25px,7vw,34px)}}
+@media(prefers-reduced-motion:reduce){.loader-wheel,.sem-loader:before,.sem-loader:after,.loader-beam,.loader-car-light,.loader-message,.loader-track span{animation-duration:1ms!important;animation-iteration-count:1!important}}
