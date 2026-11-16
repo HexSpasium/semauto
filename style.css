@@ -122,3 +122,20 @@ body{background:#090a0c;color:#f5f5f5}
 #cars .specs{border-color:#34383e}
 #cars .price{color:#ff2733}
 #cars .empty{color:#d0d0d0}
+
+
+/* Mobile header: clean two-level navigation */
+@media(max-width:600px){
+ .top{padding:10px 5%;font-size:9px;letter-spacing:1.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ body>header,header{display:flex!important;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:13px 10px;padding:15px 5%!important;min-height:0}
+ header .logo{display:block;flex:1 1 auto;min-width:0;white-space:nowrap;font-size:25px!important;line-height:1.1;letter-spacing:1.5px}
+ header .logo small{display:block!important;white-space:nowrap;font-size:8px!important;letter-spacing:2.2px!important;line-height:1.5;margin-top:4px}
+ header nav{display:flex!important;order:3;flex:0 0 100%;width:100%;justify-content:space-between;align-items:center;gap:8px!important;padding-top:11px;border-top:1px solid #292b30}
+ header nav a{display:block;white-space:nowrap;font-size:11px!important;line-height:1.4;padding:3px 0}
+ header .admin{display:block;flex:0 0 auto;padding:9px 10px!important;font-size:9px!important;white-space:nowrap;letter-spacing:.7px}
+}
+@media(max-width:360px){
+ header .logo{font-size:22px!important}
+ header nav a{font-size:10px!important}
+ header .admin{font-size:8px!important;padding:8px!important}
+}
