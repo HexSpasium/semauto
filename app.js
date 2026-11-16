@@ -11,7 +11,38 @@ function render(){
  $('brand').innerHTML='<option value="">Tüm markalar</option>'+brands.map(b=>'<option value="'+esc(b)+'">'+esc(b)+'</option>').join('');$('brand').value=selected;
  document.querySelectorAll('[data-car]').forEach(b=>b.onclick=()=>showDetail(Number(b.dataset.car)));
 }
-function showDetail(i){const c=cars[i];if(!c)return;$('mtitle').textContent=[c.brand,c.model,c.trim_name].filter(Boolean).join(' ');$('mdetail').innerHTML=(c.cover_image_url?'<img src="'+esc(c.cover_image_url)+'" alt="Kapak fotoğrafı" style="width:100%;max-height:260px;object-fit:cover;border-radius:8px">':'')+(Array.isArray(c.gallery_urls)&&c.gallery_urls.length?'<div class="vehicle-gallery">'+c.gallery_urls.map((url,n)=>'<img src="'+esc(url)+'" alt="Araç fotoğrafı '+(n+1)+'" loading="lazy">').join('')+'</div>':'')+'Model yılı: '+esc(c.model_year)+'<br>Kilometre: '+Number(c.mileage_km||0).toLocaleString('tr-TR')+' km<br>Yakıt: '+esc(c.fuel_type)+'<br>Vites: '+esc(c.transmission)+'<br>Kasa: '+esc(c.body_type)+'<br>Değişen: '+esc((c.replaced_parts||[]).join(', ')||'Belirtilmemiş')+'<br>Boyalı: '+esc((c.painted_parts||[]).join(', ')||'Belirtilmemiş')+'<br>Hasar: '+esc(c.damage_notes||'Belirtilmemiş')+'<br><br>'+esc(c.description||'')+'<br><br><b>'+money(c.price)+'</b>';$('modal').classList.add('open');}
+let lightboxImages=[],lightboxIndex=0;
+function ensureLightbox(){
+ if(document.getElementById('imageLightbox'))return;
+ const box=document.createElement('div');box.id='imageLightbox';box.className='image-lightbox';box.innerHTML='<button class="lightbox-close" type="button" aria-label="Kapat">×</button><button class="lightbox-prev" type="button" aria-label="Önceki fotoğraf">‹</button><img class="lightbox-image" alt="Araç fotoğrafı"><button class="lightbox-next" type="button" aria-label="Sonraki fotoğraf">›</button><div class="lightbox-count"></div>';
+ document.body.appendChild(box);
+ box.querySelector('.lightbox-close').onclick=closeLightbox;
+ box.querySelector('.lightbox-prev').onclick=()=>stepLightbox(-1);
+ box.querySelector('.lightbox-next').onclick=()=>stepLightbox(1);
+ box.addEventListener('click',e=>{if(e.target===box)closeLightbox()});
+}
+function openLightbox(index){
+ if(!lightboxImages.length)return;
+ ensureLightbox();lightboxIndex=(index+lightboxImages.length)%lightboxImages.length;
+ const box=$('imageLightbox'),img=box.querySelector('.lightbox-image');
+ img.src=lightboxImages[lightboxIndex];box.querySelector('.lightbox-count').textContent=(lightboxIndex+1)+' / '+lightboxImages.length;
+ box.classList.add('open');document.body.classList.add('lightbox-active');
+}
+function stepLightbox(direction){openLightbox(lightboxIndex+direction)}
+function closeLightbox(){const box=$('imageLightbox');if(box)box.classList.remove('open');document.body.classList.remove('lightbox-active')}
+document.addEventListener('keydown',e=>{
+ const box=$('imageLightbox');if(!box?.classList.contains('open'))return;
+ if(e.key==='Escape')closeLightbox();if(e.key==='ArrowRight')stepLightbox(1);if(e.key==='ArrowLeft')stepLightbox(-1);
+});
+function showDetail(i){
+ const c=cars[i];if(!c)return;
+ lightboxImages=[c.cover_image_url,...(Array.isArray(c.gallery_urls)?c.gallery_urls:[])].filter(Boolean);
+ $('mtitle').textContent=[c.brand,c.model,c.trim_name].filter(Boolean).join(' ');
+ const thumbs=lightboxImages.map((url,n)=>'<button type="button" class="vehicle-gallery-thumb" data-image-index="'+n+'" aria-label="Fotoğrafı büyüt"><img src="'+esc(url)+'" alt="Araç fotoğrafı '+(n+1)+'" loading="lazy"><span>⤢</span></button>').join('');
+ $('mdetail').innerHTML=(thumbs?'<div class="vehicle-gallery">'+thumbs+'</div>':'')+'Model yılı: '+esc(c.model_year)+'<br>Kilometre: '+Number(c.mileage_km||0).toLocaleString('tr-TR')+' km<br>Yakıt: '+esc(c.fuel_type)+'<br>Vites: '+esc(c.transmission)+'<br>Kasa: '+esc(c.body_type)+'<br>Değişen: '+esc((c.replaced_parts||[]).join(', ')||'Belirtilmemiş')+'<br>Boyalı: '+esc((c.painted_parts||[]).join(', ')||'Belirtilmemiş')+'<br>Hasar: '+esc(c.damage_notes||'Belirtilmemiş')+'<br><br>'+esc(c.description||'')+'<br><br><b>'+money(c.price)+'</b>';
+ document.querySelectorAll('[data-image-index]').forEach(b=>b.onclick=()=>openLightbox(Number(b.dataset.imageIndex)));
+ $('modal').classList.add('open');
+}
 document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs button').forEach(x=>x.classList.remove('active'));b.classList.add('active');category=b.dataset.cat;render()});
 ['brand','model','fuel','gear','price'].forEach(id=>$(id).addEventListener('input',render));$('filter').onclick=render;$('close').onclick=()=>$('modal').classList.remove('open');$('modal').onclick=e=>{if(e.target===$('modal'))$('modal').classList.remove('open')};
 render();
