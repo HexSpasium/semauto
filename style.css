@@ -54,3 +54,51 @@ body.lightbox-active{overflow:hidden}
 .detail-footnote{margin-top:18px;color:#8d8b83;font-size:10px;line-height:1.7}
 .detail-no-photo{height:420px;display:grid;place-items:center;color:#888;font-size:11px;letter-spacing:2px;background:#151918}
 @media(max-width:760px){#modal.modal{padding:10px}#modal .dialog{width:100%;max-height:94vh}#modal #mtitle{padding:24px 20px 18px;font-size:22px}#modal #close{margin:9px 9px -50px 0;width:38px;height:38px}.detail-layout{grid-template-columns:1fr}.detail-media{padding:14px;border-right:0;border-bottom:1px solid #ffffff16}.detail-hero,.detail-no-photo{height:260px}.detail-thumbs{grid-template-columns:repeat(4,minmax(0,1fr))}.detail-thumb{height:65px}.detail-info{padding:22px 18px}.detail-price{font-size:29px}}
+
+/* SEM AUTO identity system — black / graphite / signal red / white */
+:root{--bg:#0b0c0e;--panel:#141619;--gold:#ed101c;--muted:#a2a4a8;--white:#f5f5f5;--red:#ed101c;--line:#303237;--surface:#101215}
+html,body{background:var(--bg);color:var(--white)}
+body{font-family:'DM Sans',sans-serif}
+.top{background:#050607;color:#a9aaad;border-bottom:1px solid #26282d}
+.top b,.brand span,.logo i,.hero h1 i,h2 i,main small,.eyebrow,.hero span{color:var(--red)}
+header{background:rgba(7,8,10,.97);border-bottom:1px solid #33353a;box-shadow:0 8px 30px #0005}
+.brand,.logo{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:2px}
+.brand small,.logo small{color:#999}
+nav a{color:#dedee0}nav a:hover{color:var(--red)}
+.admin{border:1px solid var(--red);color:#fff;transition:.2s}.admin:hover{background:var(--red)}
+.hero{background:linear-gradient(90deg,#08090bf2 0%,#0b0c0edb 43%,#0b0c0e55 100%),url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85') center/cover}
+.hero h1{font-family:'Oswald',sans-serif;font-weight:600;letter-spacing:.5px}
+.hero h1 i,h2 i{font-style:italic}
+.btn,.gold{background:var(--red);color:#fff;border:1px solid #ff3641;box-shadow:0 8px 24px #ed101c35;transition:.2s}
+.btn:hover,.gold:hover{background:#c9000c;transform:translateY(-2px)}
+.section{background:#0b0c0e;color:#f4f4f4}
+.head h2,.contact h2,.about h2{font-family:'Oswald',sans-serif;letter-spacing:.4px}
+.head p,.contact p{color:#a4a5a8}.head>b{color:#f5f5f5}
+.filters{background:#141619;border:1px solid #303237;box-shadow:0 14px 36px #0003}
+.filters label{color:#aaa}.filters select,.filters input{background:#0b0d10;border:1px solid #383b41;color:#f4f4f4;border-radius:0}
+.filters select:focus,.filters input:focus{outline:1px solid var(--red);border-color:var(--red)}
+.filters button{background:var(--red);color:#fff}
+.tabs button{border:1px solid #383b41;background:#111316;color:#ddd}
+.tabs button:hover,.tabs button.active{background:var(--red);border-color:var(--red);color:white}
+.car{background:#141619;border:1px solid #303237;color:#f5f5f5}
+.car:hover{box-shadow:0 18px 45px #0008;border-color:#6c252a}
+.photo{background-color:#202226}.tag{background:var(--red);color:white}
+.carbody h3{font-family:'Oswald',sans-serif;font-weight:500;color:#fff}
+.subtitle{color:#a6a7aa}.specs{border-color:#303237}.specs span{color:#9a9ca0}.specs b{color:#eee}
+.price{font-family:'Oswald',sans-serif;color:#ff2632}.detail{color:#fff}.detail:hover{color:var(--red)}
+.empty{color:#bbb}
+.about{background:#141619;border-top:1px solid #303237;border-bottom:1px solid #303237}
+.about h3{font-family:'Oswald',sans-serif;color:#fff;letter-spacing:1px}.about p{color:#b2b3b6}
+.contact{background:linear-gradient(120deg,#15171a,#090a0c);color:white;border-bottom:1px solid #333}
+footer{background:#050607;color:#999;border-top:2px solid var(--red)}
+footer strong{font:600 24px Oswald;letter-spacing:2px;color:#fff}footer i{color:var(--red);font-style:normal}
+footer a{color:#eee}footer a:hover{color:var(--red)}
+/* Full-width brand signature banner */
+.brand-banner{display:block;width:100%;background:#08090b;line-height:0;overflow:hidden;border-top:1px solid #303237}
+.brand-banner img{display:block;width:100%;height:auto;max-height:440px;object-fit:cover;object-position:center}
+@media(max-width:700px){.brand-banner img{min-height:150px;object-fit:cover;object-position:center}}
+/* Dialog and lightbox follow the same identity */
+#modal .dialog{background:#111316;color:#f5f5f5;border-color:#e5091855}
+#modal #mtitle{color:#fff}
+.detail-price,.detail-eyebrow,.detail-section h4{color:#ff2632}
+.detail-media{background:#090a0c}
