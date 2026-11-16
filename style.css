@@ -144,3 +144,10 @@ body{background:#090a0c;color:#f5f5f5}
 .detail-footnote .contact-name{font:600 16px Oswald,sans-serif;letter-spacing:.8px;color:#fff}
 .detail-footnote .contact-phone{font:500 15px 'DM Sans',sans-serif;letter-spacing:.5px;color:#ff303b;text-decoration:none}
 .detail-footnote .contact-phone:hover{color:#fff}
+
+/* Sold vehicles remain in the showroom with a subdued treatment */
+#cars .car.is-sold .photo{filter:sepia(.78) saturate(.58) brightness(.76);position:relative}
+#cars .car.is-sold .photo .tag{filter:none}
+#cars .sold-ribbon{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);z-index:2;display:flex;align-items:center;justify-content:center;min-height:43px;padding:9px 14px;background:rgba(255,255,255,.96);color:#e50918;font:700 19px Oswald,sans-serif;letter-spacing:4px;text-align:center;box-shadow:0 3px 18px #0005;pointer-events:none}
+#cars .car.is-sold .price{color:#a5a5a5}
+@media(max-width:600px){#cars .sold-ribbon{min-height:38px;font-size:17px;letter-spacing:3px}}
